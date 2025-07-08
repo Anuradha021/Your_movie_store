@@ -1,4 +1,4 @@
-function SearchBar({ query, setQuery, resultCount }) {
+function SearchBar({ query, setQuery }) {
   return (
     <div className="bg-yellow-400 px-6 py-4 flex justify-between items-center">
       <input
@@ -8,13 +8,7 @@ function SearchBar({ query, setQuery, resultCount }) {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      {resultCount !== null && (
-        <p className="ml-4 font-bold text-lg">
-          Found <span className="text-black">{resultCount}</span> results
-        </p>
-      )}
     </div>
   );
 }
-
 export default SearchBar;

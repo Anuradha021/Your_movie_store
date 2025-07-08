@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StarRating from "./StarRating";
 
 function MovieDetails({ movie, onClose, onAddWatched, watched }) {
   const [userRating, setUserRating] = useState(0);
+
+  useEffect(() => {
+    setUserRating(0);
+  }, [movie]);
 
   const alreadyWatched = watched.some((m) => m.imdbID === movie.imdbID);
 

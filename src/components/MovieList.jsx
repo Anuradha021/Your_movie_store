@@ -1,10 +1,12 @@
 import MovieItem from "./MovieItem";
 
-function MovieList({ movies, onSelectMovie }) {
+function MovieList({ movies, onSelectMovie, hasSearched }) {
   return (
     <div className="overflow-y-scroll p-4 bg-purple-900">
-      {movies.length === 0 ? (
+      {!hasSearched ? (
         <p className="text-center text-white text-lg mt-20">Start searching for movies 🎬</p>
+      ) : movies.length === 0 ? (
+        <p className="text-center text-white text-lg mt-20">Movie not found 😢</p>
       ) : (
         movies.map(movie => (
           <MovieItem
@@ -17,5 +19,4 @@ function MovieList({ movies, onSelectMovie }) {
     </div>
   );
 }
-
 export default MovieList;
